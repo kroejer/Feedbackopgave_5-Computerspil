@@ -8,7 +8,12 @@ public class Player {
     public Player(int playerId, String name, int age, double score) {
         this.playerId = playerId;
         this.name = name;
-        this.age = age;
+        if (age >= 0) {
+            this.age = age;
+        } else {
+            this.age = 0;
+            System.out.println("Fejl: Alderen må ikke være negativ!");
+        }
         this.score = score;
     }
 
@@ -38,7 +43,12 @@ public class Player {
     }
 
     public void setAge(int age) {
-        this.age = age;
+        if (age > 0) {
+            this.age = age;
+        } else {
+            this.age = 10;
+            System.out.println("Fejl: Alderen må ikke være negativ!");
+        }
     }
 
     public void setScore(double score) {
@@ -52,14 +62,7 @@ public class Player {
 
     //Metode til at udskrive information om objektet i konsollen
     public void displayDetails() {
-        System.out.println("************************");
-        System.out.println("---Player information---");
-        System.out.println("Player ID: " + playerId);
-        System.out.println("Name: " + name);
-        System.out.println("Age: " + age);
-        System.out.println("Score: " + score);
-        System.out.println("************************");
-        System.out.println();
+        System.out.println(this);
     }
 
     //Alternativ metode til at udskrive information om objektet i konsollen ved at overskrive toString metoden fra Java

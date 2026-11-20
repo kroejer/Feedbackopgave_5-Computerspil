@@ -38,62 +38,56 @@ public class GameSystem {
 
     //Metode til at udskrive alle Game objekter der er indeholdt i vores GameSystem objekt, til konsollen
     public void displayAllGames() {
-        for (Game game : games) {
-            game.displayDetails();
+        for (int i = 0; i < gameCount; i++) {
+            games[i].displayDetails();
         }
     }
 
     //Metode til at udskrive alle Player objekter der er indeholdt i vores GameSystem objekt, til konsollen
     public void displayAllPlayers() {
-        for (Player player : players) {
-            player.displayDetails();
+        for (int i = 0; i < playerCount; i++) {
+            players[i].displayDetails();
         }
     }
 
     //Metode der opdaterer et Player objekts score attribut ved at kalde på updateScore metoden fra Player klassen
     public void updatePlayerScore(int playerId, double newScore) {
         Player playerToUpdate = findPlayerById(playerId);
-        playerToUpdate.updateScore(newScore);
+        if (playerToUpdate != null) {
+            playerToUpdate.updateScore(newScore);
+        } else {
+            System.out.println("Kan ikke opdatere spillerens score, da spillerID " +  playerId + " ikke findes!");
+        }
     }
 
     //Metode der finder et specifikt Game objekt via gameId og returnerer det
     public Game findGameById(int gameId) {
-        if (gameId > games.length) {
-            System.out.println("Dette GameID findes ikke!");
-            return null;
-        } else {
-            Game findGameById = games[0];
-            for (Game game : games) {
-                if (game.getGameId() == gameId) {
-                    findGameById = game;
-                }
+        for (int i = 0; i < gameCount; i++) {
+            if (games[i].getGameId() == gameId) {
+                return games[i];
             }
-            return findGameById;
         }
+        System.out.println("Det søgte spil findes ikke!");
+        return null;
     }
 
     //Metode der finder et specifikt Player objekt via playerId og returnerer det
     public Player findPlayerById(int playerId) {
-        if (playerId > players.length) {
-            System.out.println("Dette PlayerID findes ikke!");
-            return null;
-        } else {
-            Player findPlayerById = players[0];
-            for (Player player : players) {
-                if (player.getPlayerId() == playerId) {
-                    findPlayerById = player;
-                }
+        for (int i = 0; i < playerCount; i++) {
+            if (players[i].getPlayerId() == playerId) {
+                return players[i];
             }
-            return findPlayerById;
         }
+        System.out.println("Den søgte spiller findes ikke!");
+        return null;
     }
 
     //Metode der finder det Player objekt der har højest værdi i score attributten og returnerer det
     public Player findTopScoringPlayer() {
         Player topScoringPlayer = players[0];
-        for (Player player : players) {
-            if (player.getScore() > topScoringPlayer.getScore()) {
-                topScoringPlayer = player;
+        for (int i = 0; i < playerCount; i++) {
+            if (players[i].getScore() > topScoringPlayer.getScore()) {
+                topScoringPlayer = players[i];
             }
         }
         System.out.println("---Top scoring player---");

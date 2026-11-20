@@ -1,6 +1,6 @@
 
 void main() {
-    Game lol = new Game(1, "League of Legends", "MOBA", 0.0);
+    Game lol = new Game(1, "League of Legends", "MOBA", -1.0);
     Game wow = new Game(2, "World of Warcraft", "MMORPG", 14.99);
     Game arcRaid = new Game(3, "Arc Raiders", "Extraction Shooter", 39.99);
     Game cs2 = new Game(4, "Counter Strike 2", "First Person Shooter", 19.99);
@@ -36,10 +36,10 @@ void main() {
     System.out.println(steam.findGameById(5));
 
     //Test 5
-    System.out.println(steam.findPlayerById(2));
+    System.out.println(steam.findPlayerById(1));
 
     //Test 6
-    System.out.println(steam.findPlayerById(5));
+    System.out.println(steam.findPlayerById(78));
 
     //Test 7
     steam.updatePlayerScore(1, 40);

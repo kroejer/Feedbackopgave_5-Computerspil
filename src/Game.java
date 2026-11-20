@@ -9,7 +9,12 @@ public class Game {
         this.gameId = gameId;
         this.title = title;
         this.genre = genre;
-        this.price = price;
+        if (price > 0) {
+            this.price = price;
+        } else {
+            System.out.println("Fejl: Prisen må ikke være negativ!");
+            this.price = 0;
+        }
     }
 
     //Her kommer alle get'ere og set'ere
@@ -42,20 +47,18 @@ public class Game {
     }
 
     public void setPrice(double price) {
-        this.price = price;
+        if (price < 0) {
+            this.price = price;
+        } else {
+            System.out.println("Fejl: Prisen må ikke være negativ!");
+        }
     }
 
     //Metode til at udskrive information om objektet i konsollen
     public void displayDetails() {
-        System.out.println("**********************");
-        System.out.println("---Game information---");
-        System.out.println("Game ID: " + gameId);
-        System.out.println("Title: " + title);
-        System.out.println("Genre: " + genre);
-        System.out.println("Price: " + price);
-        System.out.println("**********************");
-        System.out.println();
+        System.out.println(this);
     }
+
 
     //Alternativ metode til at udskrive information om objektet i konsollen ved at overskrive toString metoden fra Java
     @Override

@@ -108,3 +108,12 @@ Men vi fik det til at virke til sidst og blev tilfredse med resultatet.
 | Test kapacitetsgrænsen for spillere   | Forsøg at tilføje et femte **Player** objekt til **steam**                                                                                                | Spilleren bliver ikke tilføjet og der udskrives en fejl besked i konsollen                                                                                                                        | Samme som forventet |
 | Test alle `Game` set'ere og get'ere   | Kør hver enkelt `Game` set'er og get'er metode og kør til sidst `displayAllGames` for at tjekke om det også er blevet overført til **steam** objektet     | Vores metoder virker og attributterne bliver ændret korrekt. Derefter skal de ændrede attributter udskrives i konsollen hver for sig, og til sidst skal `Game` objekterne udskrives i konsollen   | Samme som forventet |
 | Test alle `Player` set'ere og get'ere | Kør hver enkelt `Player` set'er og get'er metode og kør til sidst `displayAllPlayers` for at tjekke om det også er blevet overført til **steam** objektet | Vores metoder virker og attributterne bliver ændret korrekt. Derefter skal de ændrede attributter udskrives i konsollen hver for sig, og til sidst skal `Player` objekterne udskrives i konsollen | Samme som forventet |
+
+
+## **Changelog**  
+* Har rettet vores søgemetoder så de virker korrekt med et vilkårligt 
+antal spil og spillere
+* Har rettet vores display metoder så de også virker korrekt med vilkårligt
+antal spil og spillere
+* Implementeret kontrol ved opdatering af score
+* Har implementeret validering af alder og pris for henholdsvis player og game
